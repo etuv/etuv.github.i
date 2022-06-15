@@ -1,0 +1,119 @@
+<html onclick="play()" lang="en"><script>
+    (function() {
+    class RuffleMimeType {
+        constructor(a, b, c) {
+            this.type = a, this.description = b, this.suffixes = c
+        }
+    }
+    class RuffleMimeTypeArray {
+        constructor(a) {
+            this.__mimetypes = [], this.__named_mimetypes = {};
+            for (let b of a) this.install(b)
+        }
+        install(a) {
+            let b = this.__mimetypes.length;
+            this.__mimetypes.push(a), this.__named_mimetypes[a.type] = a, this[a.type] = a, this[b] = a
+        }
+        item(a) {
+            return this.__mimetypes[a]
+        }
+        namedItem(a) {
+            return this.__named_mimetypes[a]
+        }
+        get length() {
+            return this.__mimetypes.length
+        }
+    }
+    class RufflePlugin extends RuffleMimeTypeArray {
+        constructor(a, b, c, d) {
+            super(d), this.name = a, this.description = b, this.filename = c
+        }
+        install(a) {
+            a.enabledPlugin || (a.enabledPlugin = this), super.install(a)
+        }
+    }
+    class RufflePluginArray {
+        constructor(a) {
+            this.__plugins = [], this.__named_plugins = {};
+            for (let b of a) this.install(b)
+        }
+        install(a) {
+            let b = this.__plugins.length;
+            this.__plugins.push(a), this.__named_plugins[a.name] = a, this[a.name] = a, this[b] = a
+        }
+        item(a) {
+            return this.__plugins[a]
+        }
+        namedItem(a) {
+            return this.__named_plugins[a]
+        }
+        get length() {
+            return this.__plugins.length
+        }
+    }
+    const FLASH_PLUGIN = new RufflePlugin("Shockwave Flash", "Shockwave Flash 32.0 r0", "ruffle.js", [new RuffleMimeType("application/futuresplash", "Shockwave Flash", "spl"), new RuffleMimeType("application/x-shockwave-flash", "Shockwave Flash", "swf"), new RuffleMimeType("application/x-shockwave-flash2-preview", "Shockwave Flash", "swf"), new RuffleMimeType("application/vnd.adobe.flash-movie", "Shockwave Flash", "swf")]);
+
+    function install_plugin(a) {
+        navigator.plugins.install || Object.defineProperty(navigator, "plugins", {
+            value: new RufflePluginArray(navigator.plugins),
+            writable: !1
+        }), navigator.plugins.install(a), 0 < a.length && !navigator.mimeTypes.install && Object.defineProperty(navigator, "mimeTypes", {
+            value: new RuffleMimeTypeArray(navigator.mimeTypes),
+            writable: !1
+        });
+        for (var b = 0; b < a.length; b += 1) navigator.mimeTypes.install(a[b])
+    }
+    install_plugin(FLASH_PLUGIN);
+})();
+</script><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="css/glitch.css">
+    <link rel="stylesheet" type="text/css" href="css/marquee.css">
+    </head><body>
+    <title>mq</title>
+    <style type="text/css">
+      body {
+          cursor: url("cursor.gif"), auto;
+      }
+    </style>
+      <style type="text/css">
+        a {
+            cursor: url("cursor2.gif"), default;
+        }
+
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+      </style>
+  
+  
+  	 
+    <div id="app">
+      <div id="wrapper">
+        <h1 class="glitch" data-text="mq">mq</h1>
+      </div>
+    </div>
+    <div class="marquee-container">
+      <pre>|<div id="marquee" class="marquee"><div style="width: 100000px; margin-left: 420px; animation: 8.84762s linear 1s infinite normal none running marqueeAnimation-6151356;" class="js-marquee-wrapper"><div class="js-marquee" style="margin-right: 0px; float: left;"><a href="https://discord.com/users/978343919928627270" target="_BLANK">discord</a> | <a href="https://t.me/weenier" target="_BLANK">telegram</a> | <a href="https://tiktok.com/@8wh9" target="_BLANK">tiktok</a> | <a href="https://twitter.com/420mq420" target="_BLANK">twitter</a> | </div><style>@-webkit-keyframes marqueeAnimation-6151356  { 100%  {margin-left:-509.0278015136719px}}</style></div></div>|</pre>
+    </div>
+
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.marquee.min.js"></script>
+    <script type="text/javascript" src="js/slideshow.js"></script>
+    <script type="text/javascript" src="js/music.js"></script>
+    <script>
+  		var audio = document.getElementById("audio");
+ 	 	audio.volume = 0.2;
+	</script>
+    <script>
+      function play() {
+        var audio = document.getElementById("audio");
+        audio.play();
+      }
+    </script>
+  
+</body></html>
