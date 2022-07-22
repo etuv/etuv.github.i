@@ -1,7 +1,7 @@
 /* Content */
 
 body {
-  background-image: url(media/bg.gif);
+  background-image: url(bg.gif);
   object-fit: cover;
   background-size: cover;
   background-repeat: no-repeat;
